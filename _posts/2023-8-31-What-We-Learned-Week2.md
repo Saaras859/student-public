@@ -3,7 +3,7 @@ comments: True
 layout: post
 title: What We learned Week 2
 description: talk about what we learned week 2
-type: hacks
+type: tangibles
 courses: {'csp': {'week': 2}}
 ---
 Week 2:

@@ -3,7 +3,7 @@ comments: True
 layout: post
 title: What We learned
 description: talk about what we learned last week
-type: hacks
+type: tangibles
 courses: {'csp': {'week': 1}}
 ---
 1. VSCode: You likely started with setting up and getting familiar with Visual Studio Code (VSCode). It's a popular code editor with various extensions and features that make coding in multiple languages easier.

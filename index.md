@@ -83,5 +83,5 @@ Blogging in GitHub pages is a way to learn and code at the same time.
 -👀 I’m interested in Quantum Computing and Machine Learning.  
 -🌱 I’m currently learning Markdown, how Quantum Computers work.  
 -💞️ I’m looking to collaborate on Open Source all though im building my skills right now.  
--📫 How to reach me kodalisaaras@gmail.com, 8587890950. 
--💀 I am currently looking to learn more about git and anyways I can contribute to developing software
+-📫 How to reach me kodalisaaras@gmail.com, 8587890950.  
+-💀 I am currently looking to learn more about git and anyways I can contribute to developing software 

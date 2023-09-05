@@ -1,10 +1,12 @@
 ---
+layout: post
 title: Python IO
-type: hacks
-description: Quiz, that tests basic python knowledge
-categories: [C4.9]
-courses: {  csp: {week: 1} }
-tags: [python]
+description: A cool introduction to python inputs/outputs
+toc: True
+comments: True
+categories: ['5.A', 'C4.1']
+courses: {'csp': {'week': 2}}
+type: devops
 ---
 
 ## Python Input/Output:
@@ -46,3 +48,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+    Hello, kodal running C:\Users\kodal\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe
+    You will be asked 3 questions.
+

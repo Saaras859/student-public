@@ -5,20 +5,17 @@ description: A Tech Talk on Linux and the Bash shell.
 toc: True
 comments: True
 categories: ['5.A', 'C4.1']
-courses: {'csse': {'week': 1}, 'csp': {'week': 1, 'categories': ['6.B']}, 'csa': {'week': 1}}
-type: devops
+courses: {'csse': {'week': 1}, 'csp': {'week': 0, 'categories': ['6.B']}, 'csa': {'week': 0}}
+type: hacks
 ---
 
 ## Bash Tutorial
-> A brief overview of Bash, on your way to becoming a Linux expert.  <mark>When a computer boots up, a kernel (MacOS, Windows, Linux) is started</mark>.  This kernel provides a shell, or <mark>terminal</mark>, that allows user to interact with a most basic set of commands.  Typically, the casual user will not interact with the shell/terminal as a Desktop User Interface is started by the computer boot up process.  To activate a shell directly, users will run a "terminal" through the Desktop. <mark>VS Code provides ability to activate "terminal"</mark> while in the IDE.
+> A brief overview of Bash, on your way to becoming a Linux expert.  When a computer boots up, a kernel (MacOS, Windows, Linux) is started.  This kernel provides a shell that allows user to interact with a most basic set of commands.  Typically, the casual user will not interact with the shell as a Desktop User Interface is started by the computer boot up process.  To activate a shell directly, users will run a "terminal" through the Desktop. VS Code provides ability to activate "terminal" while in the IDE.
 
-## Variable Prerequisites
-> Setup bash shell dependency variables for this page.  Variables are one of the first aspects of programming.  <mark>Variables have "name" and a "value"</mark>.
+## Prerequisites
+> Setup bash shell dependency variables for this page.
 
-- Hack Note: Change variables to match your student project.
-
-### Define variable
-The following code cell <mark>defines 3 variables and assigns each a value</mark>.  There are some extra command, called a HERE document, that write these variables to a file.  This is so we can use these variables over and over below.
+- Hack: Change variables to match your project.
 
 
 ```python
@@ -27,14 +24,11 @@ The following code cell <mark>defines 3 variables and assigns each a value</mark
 # Dependency Variables, set to match your project directories
 
 cat <<EOF > /tmp/variables.sh
-export project_dir=$HOME/vscode  # change vscode to different name to test git clone
-export project=\$project_dir/teacher  # change teacher to name of project from git clone
-export project_repo="https://github.com/nighthawkcoders/teacher.git"  # change to project of choice
+export project_dir=$HOME/Docuemnts/vscode  # change vscode to different name to test git clone
+export project=\$project_dir/student  # change teacher to name of project from git clone
+export project_repo="https://github.com/will-w-cheng/student.git"  # change to project of choice
 EOF
 ```
-
-### Output the value of a variable
-The following code cell <mark>outputs the value of the variables</mark>, using the echo command.  For visual understanding in the output, each echo command provide a title before the $variable 
 
 
 ```python
@@ -43,25 +37,19 @@ The following code cell <mark>outputs the value of the variables</mark>, using t
 # Extract saved variables
 source /tmp/variables.sh
 
-# Output shown title and value variables
+# Access the variables
 echo "Project dir: $project_dir"
 echo "Project: $project"
 echo "Repo: $project_repo"
 ```
 
-    Project dir: /home/saaras/vscode
-    Project: /home/saaras/vscode/teacher
-    Repo: https://github.com/nighthawkcoders/teacher.git
+    Project dir: /home/will/Docuemnts/vscode
+    Project: /home/will/Docuemnts/vscode/student
+    Repo: https://github.com/will-w-cheng/student.git
 
 
-## Project Setup and Analysis with Bash Scripts
-The bash scripts that follow automate what was done in the setup procedures.  The purpose of this is to show that many of the commands we performed can be added to a script, then performed automatically.
-
-### Pull Code
-> Pull code from GitHub to your machine. This is a <mark>bash script</mark>, a sequence of commands, that will create a project directory and add the "project" from GitHub to the vscode directory.  There is conditional logic to make sure that clone only happen if it does not (!) exist.   Here are some key elements in this code...
-
-- cd command (change directory), remember this from terminal session
-- if statements (conditional statement, called selection statement by College Board), code inside only happens if condition is met
+## Setup Project
+> Pull code from GitHub to your machine. This script will create a project directory and add "project" from GitHub to the vscode directory.  There is conditional logic to make sure that clone only happen if it does not (!) exist.
 
 
 ```python
@@ -70,7 +58,7 @@ The bash scripts that follow automate what was done in the setup procedures.  Th
 # Extract saved variables
 source /tmp/variables.sh
 
-echo "conditional statement to create a project directory and project"
+echo "Using conditional statement to create a project directory and project"
 
 cd ~    # start in home directory
 
@@ -93,13 +81,20 @@ fi
 echo "Directory $project exists." 
 ```
 
-    conditional statement to create a project directory and project
-    Directory /home/saaras/vscode exists.
-    Directory /home/saaras/vscode/teacher exists.
+    Using conditional statement to create a project directory and project
+    Directory /home/will/Docuemnts/vscode does not exists... makinng directory /home/will/Docuemnts/vscode
+    Directory /home/will/Docuemnts/vscode exists.
+    Directory /home/will/Docuemnts/vscode/student does not exists... cloning https://github.com/will-w-cheng/student.git
+
+
+    Cloning into 'student'...
+
+
+    Directory /home/will/Docuemnts/vscode/student exists.
 
 
 ### Look at files Github project
-> All computers contain files and directories.  The clone brought more files from cloud to your machine.  Review the bash shell script, observe the commands that show and interact with files and directories.  These were used during setup.
+> All computers contain files and directories.  The clone brought more files from cloud to your machine.  Review the bash shell script observe the commands that show and interact with files and directories.
 
 - "ls" lists computer files in Unix and Unix-like operating systems
 - "cd" offers way to navigate and change working directory
@@ -124,7 +119,7 @@ ls
 ```
 
     Navigate to project, then navigate to area wwhere files were cloned
-    /home/saaras/vscode/teacher
+    /home/will/Docuemnts/vscode/student
     
     list top level or root of files with project pulled from github
     Gemfile
@@ -137,7 +132,7 @@ ls
     _layouts
     _notebooks
     _posts
-    assets
+    activate.sh
     csa.md
     csp.md
     csse.md
@@ -148,7 +143,7 @@ ls
 
 
 ### Look at file list with hidden and long attributes
-> Most linux commands have options to enhance behavior.  The enhanced listing below shows permission bits, owner of file, size and date.
+> Most linux commands have options to enhance behavior
 
 [ls reference](https://www.rapidtables.com/code/linux/ls.html)
 
@@ -169,33 +164,34 @@ ls -al   # all files -a (hidden) in -l long listing
 ```
 
     Navigate to project, then navigate to area wwhere files were cloned
-    /home/saaras/vscode/teacher
+    /home/will/Docuemnts/vscode/student
     
     list all files in long format
     total 100
-    drwxr-xr-x 12 saaras saaras 4096 Aug 22 10:22 .
-    drwxr-xr-x  3 saaras saaras 4096 Aug 22 10:22 ..
-    drwxr-xr-x  8 saaras saaras 4096 Aug 22 10:22 .git
-    drwxr-xr-x  3 saaras saaras 4096 Aug 22 10:22 .github
-    -rw-r--r--  1 saaras saaras  157 Aug 22 10:22 .gitignore
-    -rw-r--r--  1 saaras saaras  122 Aug 22 10:22 Gemfile
-    -rw-r--r--  1 saaras saaras 1081 Aug 22 10:22 LICENSE
-    -rw-r--r--  1 saaras saaras 3131 Aug 22 10:22 Makefile
-    -rw-r--r--  1 saaras saaras 6853 Aug 22 10:22 README.md
-    -rw-r--r--  1 saaras saaras  607 Aug 22 10:22 _config.yml
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 _data
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 _includes
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 _layouts
-    drwxr-xr-x  3 saaras saaras 4096 Aug 22 10:22 _notebooks
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 _posts
-    drwxr-xr-x  4 saaras saaras 4096 Aug 22 10:22 assets
-    -rw-r--r--  1 saaras saaras   92 Aug 22 10:22 csa.md
-    -rw-r--r--  1 saaras saaras   98 Aug 22 10:22 csp.md
-    -rw-r--r--  1 saaras saaras  108 Aug 22 10:22 csse.md
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 images
-    -rw-r--r--  1 saaras saaras 5149 Aug 22 10:22 index.md
-    -rw-r--r--  1 saaras saaras   53 Aug 22 10:22 indexBlogs.md
-    drwxr-xr-x  2 saaras saaras 4096 Aug 22 10:22 scripts
+    drwxr-xr-x 12 will will 4096 Aug 28 23:35 .
+    drwxr-xr-x  3 will will 4096 Aug 28 23:35 ..
+    drwxr-xr-x  8 will will 4096 Aug 28 23:35 .git
+    drwxr-xr-x  3 will will 4096 Aug 28 23:35 .github
+    -rw-r--r--  1 will will  104 Aug 28 23:35 .gitignore
+    drwxr-xr-x  2 will will 4096 Aug 28 23:35 .vscode
+    -rw-r--r--  1 will will  122 Aug 28 23:35 Gemfile
+    -rw-r--r--  1 will will 1081 Aug 28 23:35 LICENSE
+    -rw-r--r--  1 will will 3008 Aug 28 23:35 Makefile
+    -rw-r--r--  1 will will 5798 Aug 28 23:35 README.md
+    -rw-r--r--  1 will will  496 Aug 28 23:35 _config.yml
+    drwxr-xr-x  2 will will 4096 Aug 28 23:35 _data
+    drwxr-xr-x  2 will will 4096 Aug 28 23:35 _includes
+    drwxr-xr-x  2 will will 4096 Aug 28 23:35 _layouts
+    drwxr-xr-x  3 will will 4096 Aug 28 23:35 _notebooks
+    drwxr-xr-x  3 will will 4096 Aug 28 23:35 _posts
+    -rwxr-xr-x  1 will will 1291 Aug 28 23:35 activate.sh
+    -rw-r--r--  1 will will   92 Aug 28 23:35 csa.md
+    -rw-r--r--  1 will will   98 Aug 28 23:35 csp.md
+    -rw-r--r--  1 will will  108 Aug 28 23:35 csse.md
+    drwxr-xr-x  2 will will 4096 Aug 28 23:35 images
+    -rw-r--r--  1 will will 1472 Aug 28 23:35 index.md
+    -rw-r--r--  1 will will   53 Aug 28 23:35 indexBlogs.md
+    drwxr-xr-x  3 will will 4096 Aug 28 23:35 scripts
 
 
 
@@ -213,18 +209,12 @@ ls -l  # list posts
 ```
 
     Look for posts
-    /home/saaras/vscode/teacher/_posts
-    total 88
-    -rw-r--r-- 1 saaras saaras  7685 Aug 22 10:22 2023-08-16-Tools_Equipment.md
-    -rw-r--r-- 1 saaras saaras  4650 Aug 22 10:22 2023-08-16-pair_programming.md
-    -rw-r--r-- 1 saaras saaras  7137 Aug 22 10:22 2023-08-17-markdown-html_fragments.md
-    -rw-r--r-- 1 saaras saaras  6659 Aug 22 10:22 2023-08-23-javascript-calculator.md
-    -rw-r--r-- 1 saaras saaras 10642 Aug 22 10:22 2023-08-30-agile_methodolgy.md
-    -rw-r--r-- 1 saaras saaras  3849 Aug 22 10:22 2023-08-30-javascript-music-api.md
-    -rw-r--r-- 1 saaras saaras  5312 Aug 22 10:22 2023-09-06-javascript-motion-mario-oop.md
-    -rw-r--r-- 1 saaras saaras  4812 Aug 22 10:22 2023-09-13-java-free_response.md
-    -rw-r--r-- 1 saaras saaras 13220 Aug 22 10:22 2023-10-16-java-api-pojo-jpa.md
-    -rw-r--r-- 1 saaras saaras  6819 Aug 22 10:22 2023-11-13-jwt-java-spring.md
+    /home/will/Docuemnts/vscode/student/_posts
+    total 20
+    -rw-r--r-- 1 will will 1812 Aug 28 23:35 2023-08-15-Tools_Sprint.md
+    -rw-r--r-- 1 will will 4397 Aug 28 23:35 2023-08-16-Tools_Equipment.md
+    -rw-r--r-- 1 will will  468 Aug 28 23:35 2023-08-21-GitHub_Pages.md
+    -rw-r--r-- 1 will will 3294 Aug 28 23:35 2023-08-21-Java_Caculator.md
 
 
 
@@ -242,70 +232,14 @@ ls -l  # list notebooks
 ```
 
     Look for notebooks
-    /home/saaras/vscode/teacher/_notebooks
-    total 740
-    -rw-r--r-- 1 saaras saaras  13014 Aug 22 10:22 2023-08-01-cloud_database.ipynb
-    -rw-r--r-- 1 saaras saaras   8992 Aug 22 10:22 2023-08-01-mario_player.ipynb
-    -rw-r--r-- 1 saaras saaras  43705 Aug 22 10:22 2023-08-02-cloud-workspace-automation.ipynb
-    -rw-r--r-- 1 saaras saaras  22060 Aug 22 10:22 2023-08-03-mario_block.ipynb
-    -rw-r--r-- 1 saaras saaras  11791 Aug 22 10:22 2023-08-03-mario_platform.ipynb
-    -rw-r--r-- 1 saaras saaras  19450 Aug 22 10:22 2023-08-03-mario_tube.ipynb
-    -rw-r--r-- 1 saaras saaras  24387 Aug 22 10:22 2023-08-04-mario_background.ipynb
-    -rw-r--r-- 1 saaras saaras   3496 Aug 22 10:22 2023-08-07-mario_lesson.ipynb
-    -rw-r--r-- 1 saaras saaras  10110 Aug 22 10:22 2023-08-15-java-hello.ipynb
-    -rw-r--r-- 1 saaras saaras  25624 Aug 22 10:22 2023-08-16-github_pages_setup.ipynb
-    -rw-r--r-- 1 saaras saaras  16156 Aug 22 10:22 2023-08-16-linux_shell.ipynb
-    -rw-r--r-- 1 saaras saaras  11466 Aug 22 10:22 2023-08-16-python_hello.ipynb
-    -rw-r--r-- 1 saaras saaras   9425 Aug 22 10:22 2023-08-23-github_pages_anatomy.ipynb
-    -rw-r--r-- 1 saaras saaras  22668 Aug 22 10:22 2023-08-23-java-console_games.ipynb
-    -rw-r--r-- 1 saaras saaras   9038 Aug 22 10:22 2023-08-23-python_tricks.ipynb
-    -rw-r--r-- 1 saaras saaras  10152 Aug 22 10:22 2023-08-30-javascript_top_10.ipynb
-    -rw-r--r-- 1 saaras saaras   9689 Aug 22 10:22 2023-08-30-showcase-S1-pair.ipynb
-    -rw-r--r-- 1 saaras saaras   7192 Aug 22 10:22 2023-09-05-python-flask-anatomy.ipynb
-    -rw-r--r-- 1 saaras saaras  22157 Aug 22 10:22 2023-09-06-AWS-deployment.ipynb
-    -rw-r--r-- 1 saaras saaras  14380 Aug 22 10:22 2023-09-06-java-primitives.ipynb
-    -rw-r--r-- 1 saaras saaras  11671 Aug 22 10:22 2023-09-06-javascript-input.ipynb
-    -rw-r--r-- 1 saaras saaras  13706 Aug 22 10:22 2023-09-12-java_menu_class.ipynb
-    -rw-r--r-- 1 saaras saaras   9562 Aug 22 10:22 2023-09-13-java_fibonaccii_class.ipynb
-    -rw-r--r-- 1 saaras saaras  44217 Aug 22 10:22 2023-09-13-javascript_output.ipynb
-    -rw-r--r-- 1 saaras saaras  43423 Aug 22 10:22 2023-09-13-python-pandas_intro.ipynb
-    -rw-r--r-- 1 saaras saaras  11578 Aug 22 10:22 2023-09-20-java-image_2D.ipynb
-    -rw-r--r-- 1 saaras saaras  26739 Aug 22 10:22 2023-09-20-javascript_motion_dog.ipynb
-    -rw-r--r-- 1 saaras saaras  13599 Aug 22 10:22 2023-10-02-java-spring-anatomy.ipynb
-    -rw-r--r-- 1 saaras saaras  12429 Aug 22 10:22 2023-10-09-java-chatgpt.ipynb
-    -rw-r--r-- 1 saaras saaras  15632 Aug 22 10:22 2023-10-09-javascript_api.ipynb
-    -rw-r--r-- 1 saaras saaras 113091 Aug 22 10:22 2023-10-09-python_machine_learing_fitness.ipynb
-    -rw-r--r-- 1 saaras saaras  16271 Aug 22 10:22 2023-11-13-jwt-python-flask.ipynb
-    -rw-r--r-- 1 saaras saaras  15951 Aug 22 10:22 2023-11-13-vulnerabilities.ipynb
-    -rw-r--r-- 1 saaras saaras  18328 Aug 22 10:22 2023-11-20-jwt-java-spring-challenge.md
-    -rw-r--r-- 1 saaras saaras  10745 Aug 22 10:22 2024-01-04-cockpit-setup.ipynb
-    drwxr-xr-x 2 saaras saaras   4096 Aug 22 10:22 files
-
-
-
-```python
-%%script bash
-
-# Extract saved variables
-source /tmp/variables.sh
-
-echo "Look for images in notebooks, print working directory, list files"
-cd $notebooks/images  # this should exist per fastpages
-pwd
-ls -l
-```
-
-    Look for images in notebooks, print working directory, list files
-    /mnt/c/Users/kodal/student/_notebooks
-
-
-    -bash: line 6: cd: /images: No such file or directory
-
-
-    total 36
-    -rwxrwxrwx 1 saaras saaras 16150 Aug 22 10:31 2023-08-16-linux_shell.ipynb
-    -rwxrwxrwx 1 saaras saaras  5415 Aug 17 18:03 2023-08-17-AP-pseudo-vs-python.ipynb
-    -rwxrwxrwx 1 saaras saaras  8615 Aug 17 18:03 2023-08-21-VSCode-GitHub_Pages.ipynb
+    /home/will/Docuemnts/vscode/student/_notebooks
+    total 80
+    -rw-r--r-- 1 will will 37170 Aug 28 23:35 2023-08-16-linux_shell.ipynb
+    -rw-r--r-- 1 will will 11446 Aug 28 23:35 2023-08-16-python_hello.ipynb
+    -rw-r--r-- 1 will will  5415 Aug 28 23:35 2023-08-17-AP-pseudo-vs-python.ipynb
+    -rw-r--r-- 1 will will  8461 Aug 28 23:35 2023-08-21-VSCode-GitHub_Pages.ipynb
+    -rw-r--r-- 1 will will  2744 Aug 28 23:35 2023-08-22-Python-IO.ipynb
+    -rw-r--r-- 1 will will  1417 Aug 28 23:35 2023-08-28-Plan-for-this-week.ipynb
 
 
 ### Look inside a Markdown File
@@ -333,25 +267,11 @@ echo "end of README.md"
     Navigate to project, then navigate to area wwhere files were cloned
     show the contents of README.md
     
-    ## Teacher Blog site
-    This site is intended for the development of Teacher content.  This blogging site is built using GitHub Pages [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site).
-    - The purpose is to build lessons and distribute across different Computer Science sections (CSSE, CSP, CSA), a pathway that covers 3 years of High School Instruction.
-    - The primary languages and frameworks that are taught are `JavaScript/HTML/CSS`, `Python/Flask`, `Java/Spring`.  Read below for more details.
-    - In this course, Teacher content is not exclusively developed by Teachers.  In fact, many Students have been invited to develop and publish content into this repository.  Their names will appear as authors on the content which they aided in producing.
-    - This site has incorporated ideas and has radically modified scripts from the now deprecated [fastpages](https://github.com/fastai/fastpages) repository.
-    - This site includes assistance and guideance from ChatGPT, [chat.openai.com](https://chat.openai.com/) 
-    
-    ### Courses and Pathway
-    The focus of the Del Norte Computer Science three-year pathway is `Full Stack Web Development`.  This focus provides a variety of technologies and exposures.  The intention of the pathway is breadth and exposure.
-    - `JavaScript` documents are focused on frontend development and for entry class into the Del Norte Computer Science pathway.  JavaScript documents and materials are a prerequisites to Python and Java classes.
-    - `Python` documents are focused on backend development and requirements for the AP Computer Science Principles exam.
-    - `Java` documents are focused on backend development and requirements for the AP Computer Sciene A exam.
-    - `Data Structures` materials embedded into JavaScript, Python, or Java documents are focused on college course articulation.
-    
-    ### Resources and Instruction
-    The materials, such as this README, as well as `Tools`, `DevOps`, and `Collaboration` resources are integral part of this course and Computer Science in general.  Everything in our environment is part of our learning of Computer Science. 
-    - `Visual Studio Code` is key the code-build-debug cycle editor used in this course, [VSCode download](https://code.visualstudio.com/).  This is an example of a resource, but inside of it it has features for collaboration.
-    - `Tech Talks`, aka lectures, are intended to be interactive and utilize `Jupyter Notebooks` and Websites.  This is an example of blending instruction and tools together, which in turn provide additional resources for learning.  For instance, deep knowledge on  GitHub Pages and Notebooks are valuable in understanding principles behind Full Stack Development and Data Science. 
+    ## Blog site using GitHub Pages and Jekyll
+    > This site is intended for Students.   This is to record plans, complete hacks, and do work for your learnings.
+    - This can be customized to support computer science as you work through pathway (JavaScript, Python/Flask, Java/Spring)
+    - All tangible artifact work is in a _posts or in a _notebooks.  
+    - Front matter (aka meta data) in ipynb and md files is used to organize information according to week and column in running web site.
     
     ## GitHub Pages
     All `GitHub Pages` websites are managed on GitHub infrastructure. GitHub uses `Jekyll` to tranform your content into static websites and blogs. Each time we change files in GitHub it initiates a GitHub Action that rebuilds and publishes the site with Jekyll.  
@@ -367,42 +287,73 @@ echo "end of README.md"
     
     ### WSL and/or Ubuntu installation requirements
     - The result of these step is Ubuntu tools to run preview server.  These procedures were created using [jekyllrb.com](https://jekyllrb.com/docs/installation/ubuntu/)
+    - Run scripts in scripts directory of teacher repo: setup_ubuntu.sh and activate.sh.  Or, follow commands below.
     ```bash
-    # 
-    # WSL/Ubuntu setup
+    ## WSL/Ubuntu commands
+    # sudo apt install, installs packages for Ubuntu
+    echo "=== Ugrade Packages ==="
+    sudo apt update
+    sudo apt upgrade -y
     #
-    mkdir mkdir vscode
-    git clone https://github.com/nighthawkcoders/teacher.git
-    # run script, path vscode/teacher are baked in script
-    ~/vscode/teacher/scripts/activate_ubuntu.sh
-    #=== !!!Start a new Terminal!!! ===
-    #=== Continue to next section ===
+    echo "=== Install Ruby ==="
+    sudo apt install -y ruby-full build-essential zlib1g-dev
+    # 
+    echo "=== Install Python ==="
+    sudo apt-get install -y python3 python3-pip python-is-python3
+    #    
+    echo "=== Install Jupyter Notebook ==="
+    sudo apt-get install -y jupyter-notebook
+    
+    # bash commands, install user requirements.
+    echo "=== GitHub pages build tools  ==="
+    export GEM_HOME="$HOME/gems"
+    export PATH="$HOME/gems/bin:$PATH"
+    echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+    echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+    echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+    echo "=== Gem install starting, thinking... ==="
+    gem install jekyll bundler
+    head -30 ./teacher/scripts/activate.sh
+    echo "=== !!!Start a new Terminal!!! ==="
     ```
     
     ### MacOs installation requirements 
-    - Ihe result of these step are MacOS tools to run preview server.  These procedures were created using [jekyllrb.com](https://jekyllrb.com/docs/installation/macos/). 
-    
+    - Ihe result of these step are MacOS tools to run preview server.  These procedures were created using [jekyllrb.com](https://jekyllrb.com/docs/installation/macos/). Run scripts in scripts directory of teacher repo: setup_macos.sh and activate_macos.sh.  Or, follow commands below.
     ```bash
-    # 
-    # MacOS setup
+    # MacOS commands
+    # brew install, installs packages for MacOS
+    echo "=== Ugrade Packages ==="
+    brew update
+    brew upgrade
     #
-    mkdir mkdir vscode
-    git clone https://github.com/nighthawkcoders/teacher.git
-    # run script, path vscode/teacher are baked in script
-    ~/vscode/teacher/scripts/activate_macos.sh
-    #=== !!!Start a new Terminal!!! ===
-    #=== Continue to next section ===
+    echo "=== Install Ruby ==="
+    brew install chruby ruby-install xz
+    ruby-install ruby 3.1.3
+    #
+    echo "=== Install Python ==="
+    brew install python
+    #    
+    echo "=== Install Jupyter Notebook ==="
+    brew install jupyter
+    
+    # bash commands, install user requirements.
+    export GEM_HOME="$HOME/gems"
+    export PATH="$HOME/gems/bin:$PATH"
+    echo '# Install Ruby Gems to ~/gems' >> ~/.zshrc
+    echo 'export GEM_HOME="$HOME/gems"' >> ~/.zshrc
+    echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.zshrc
+    echo "=== Gem install starting, thinking... ==="
+    gem install jekyll bundler
+    head -30 ./teacher/scripts/activate.sh
+    echo "=== !!!Start a new Terminal!!! ==="
     ```
     
-    
-    ### Run Preview Server
-    - The result of these step is server running on: http://0.0.0.0:4100/teacher/.  Regeneration messages will run in terminal on any save and update site upon refresh.  Terminal is active, press the Enter or Return key in the terminal at any time to see prompt to enter commands.
+    ### Preview
+    - The result of these step is server running on: http://0.0.0.0:4100/teacher/.  Regeneration messages will run in terminal on any save.  Press the Enter or Return key in the terminal at any time to enter commands.
     
     - Complete installation
     ```bash
-    cd ~/vscode/teacher
     bundle install
-    make
     ```
     - Run Server.  This requires running terminal commands `make`, `make stop`, `make clean`, or `make convert` to manage the running server.  Logging of details will appear in terminal.   A `Makefile` has been created in project to support commands and start processes.
     
@@ -440,12 +391,12 @@ echo "end of README.md"
         ```bash
         make convert
         ```
-        
+    
     end of README.md
 
 
-## Env, Git and GitHub
-> Env(ironment) is used to capture things like path to Code or Home directory.  Git and GitHub is NOT Only used to exchange code between individuals, it is often used to exchange code through servers, in our case deployment for Website.   All tools we use have a behind the scenes relationships with the system they run on (MacOS, Windows, Linus) or a relationship with servers which they are connected to (ie GitHub).  There is an "env" command in bash.  There are environment files and setting files (.git/config) for Git.  They both use a key/value concept.
+### Env, Git and GitHub
+> Env(ironment) is used to capture things like path to Code or Home directory.  Git and GitHub is NOT Only used to exchange code between individuals, it is often used to exchange code through servers, in our case deployment for Website.   All tools we use have a behind the scenes hav relationship with the system they run on (MacOS, Windows, Linus) or a relationship with servers which they are connected to (ie GitHub).  There is an "env" command in bash.  There are environment files and setting files (.git/config) for Git.  They both use a key/value concept.
 
 - "env" show setting for your shell
 - "git clone" sets up a director of files
@@ -467,26 +418,20 @@ env
     Show the shell environment variables, key on left of equal value on right
     
     SHELL=/bin/bash
-    WSL2_GUI_APPS_ENABLED=1
     WSL_DISTRO_NAME=Ubuntu-22.04
-    NAME=Saaras
-    PWD=/mnt/c/Users/kodal/student/_notebooks
-    LOGNAME=saaras
-    HOME=/home/saaras
+    NAME=MSI
+    PWD=/mnt/c/Users/taplet/Documents/vscode/student/_notebooks
+    LOGNAME=will
+    HOME=/home/will
     LANG=C.UTF-8
-    WSL_INTEROP=/run/WSL/1323_interop
-    WAYLAND_DISPLAY=wayland-0
+    WSL_INTEROP=/run/WSL/603_interop
     TERM=xterm-256color
-    USER=saaras
-    DISPLAY=:0
+    USER=will
     SHLVL=1
-    XDG_RUNTIME_DIR=/run/user/1000/
     WSLENV=
     XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/kodal/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0:/mnt/c/Users/kodal/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/kodal/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/kodal/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/kodal/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/kodal/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
-    DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+    PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/taplet/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/taplet/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0/LocalCache/local-packages/Python310/Scripts:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.17.8-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/dotnet/:/mnt/c/Users/taplet/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/taplet/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/taplet/AppData/Local/Programs/Git/cmd:/mnt/c/src/flutter_windows_3.10.1-stable/flutter/bin:/mnt/c/Users/taplet/.dotnet/tools:/mnt/c/Program Files (x86)/VMware/VMware Player/bin/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.17.8-hotspot/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Calibre2/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/dotnet/:/mnt/c/Users/taplet/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/taplet/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/taplet/AppData/Local/Programs/Git/cmd:/mnt/c/src/flutter_windows_3.10.1-stable/flutter/bin:/mnt/c/Users/taplet/.dotnet/tools:/snap/bin
     HOSTTYPE=x86_64
-    PULSE_SERVER=unix:/mnt/wslg/PulseServer
     _=/usr/bin/env
 
 
@@ -511,18 +456,18 @@ cat config
 
     
     show the secrets of .git
-    total 52
-    -rw-r--r-- 1 saaras saaras    21 Aug 22 10:22 HEAD
-    drwxr-xr-x 2 saaras saaras  4096 Aug 22 10:22 branches
-    -rw-r--r-- 1 saaras saaras   267 Aug 22 10:22 config
-    -rw-r--r-- 1 saaras saaras    73 Aug 22 10:22 description
-    drwxr-xr-x 2 saaras saaras  4096 Aug 22 10:22 hooks
-    -rw-r--r-- 1 saaras saaras 11702 Aug 22 10:22 index
-    drwxr-xr-x 2 saaras saaras  4096 Aug 22 10:22 info
-    drwxr-xr-x 3 saaras saaras  4096 Aug 22 10:22 logs
-    drwxr-xr-x 4 saaras saaras  4096 Aug 22 10:22 objects
-    -rw-r--r-- 1 saaras saaras   112 Aug 22 10:22 packed-refs
-    drwxr-xr-x 5 saaras saaras  4096 Aug 22 10:22 refs
+    total 48
+    -rw-r--r-- 1 will will   21 Aug 28 23:35 HEAD
+    drwxr-xr-x 2 will will 4096 Aug 28 23:35 branches
+    -rw-r--r-- 1 will will  264 Aug 28 23:35 config
+    -rw-r--r-- 1 will will   73 Aug 28 23:35 description
+    drwxr-xr-x 2 will will 4096 Aug 28 23:35 hooks
+    -rw-r--r-- 1 will will 5921 Aug 28 23:35 index
+    drwxr-xr-x 2 will will 4096 Aug 28 23:35 info
+    drwxr-xr-x 3 will will 4096 Aug 28 23:35 logs
+    drwxr-xr-x 4 will will 4096 Aug 28 23:35 objects
+    -rw-r--r-- 1 will will  112 Aug 28 23:35 packed-refs
+    drwxr-xr-x 5 will will 4096 Aug 28 23:35 refs
     
     look at config file
     [core]
@@ -531,23 +476,12 @@ cat config
     	bare = false
     	logallrefupdates = true
     [remote "origin"]
-    	url = https://github.com/nighthawkcoders/teacher.git
+    	url = https://github.com/will-w-cheng/student.git
     	fetch = +refs/heads/*:refs/remotes/origin/*
     [branch "main"]
     	remote = origin
     	merge = refs/heads/main
 
-
-## Advanced Student Request - Make a file in Bash
-> This example was requested by a student (Jun Lim, CSA). The request was to make jupyer file using bash, I adapted the request to markdown.  This type of thought will have great extrapolation to coding and possibilities of using List, Arrays, or APIs to build user interfaces.  JavaScript is a language where building HTML is very common.
-
-> To get more interesting output from terminal, this will require using something like mdless (https://github.com/ttscoff/mdless).  This enables see markdown in rendered format.
-- On Desktop [Install PKG from MacPorts](https://www.macports.org/install.php)
-- In Terminal on MacOS
-    - [Install ncurses](https://ports.macports.org/port/ncurses/)
-    - ```gem install mdless```
-    
-> Output of the example is much nicer in "jupyter"
 
 
 ```python
@@ -588,17 +522,204 @@ rm $file  # clean up termporary file
 
     
     File listing and status
-    -rw-r--r-- 1 saaras saaras 809 Aug 22 10:32 sample.md
+    -rw-r--r-- 1 will will 809 Aug 28 23:35 sample.md
      15 132 809 sample.md
+    
+    [0m[0;1;47;90mShow Generated Markdown [0;2;30;47m========================================================[0m
+    
+    This introductory paragraph and this line and the title above are generated
+    using tee with the standard input (<<) redirection operator.
+    [0;1;91m- [0;1;91m[0;97mThis [0;97mbulleted [0;97melement [0;97mis [0;97mstill [0;97mpart [0;97mof [0;97mthe [0;97mtee [0;97mbody.
+    [0;1;91m- [0;1;91m[0;97mThis [0;97mbulleted [0;97melement [0;97mand [0;97mlines [0;97mbelow [0;97mare [0;97mgenerated [0;97musing [0;97mecho [0;97mwith [0;97mstandard
+    [0;97moutput [0;97m(>>) [0;97mredirection [0;97moperator.
+    [0;1;91m- [0;1;91m[0;97mThe [0;97mlist [0;97mdefinition, [0;97mas [0;97mis, [0;97mis [0;97musing [0;97mspace [0;97mto [0;97mseperate [0;97mlines. [0;97mThus [0;97mthe [0;97muse [0;97mof
+    [0;97mcommas [0;97mand [0;97mhyphens [0;97min [0;97moutput.
+          [0;1;91m- [0;1;91m[0;97mls: [0;97mlist [0;97mdirectory
+          [0;1;91m- [0;1;91m[0;97mcd: [0;97mchange [0;97mdirectory
+          [0;1;91m- [0;1;91m[0;97mpwd: [0;97mpresent [0;97mworking [0;97mdirectory
+          [0;1;91m- [0;1;91m[0;97mif [0;97mthen [0;97mfi: [0;97mtest [0;97mcondition
+          [0;1;91m- [0;1;91m[0;97menv: [0;97mbash [0;97menvironment [0;97mvariables
+          [0;1;91m- [0;1;91m[0;97mcat: [0;97mview [0;97mfile [0;97mcontents
+          [0;1;91m- [0;1;91m[0;97mtee: [0;97mwrite [0;97mto [0;97moutput
+          [0;1;91m- [0;1;91m[0;97mecho: [0;97mdisplay [0;97mcontent [0;97mof [0;97mstring
+          [0;1;91m- [0;1;91m[0;97mecho [0;97m"sample [0;97mtext" [0;97m>$file: [0;97mwrite [0;97mcontent [0;97mto [0;97mfile
+          [0;1;91m- [0;1;91m[0;97mecho [0;97m"sample [0;97mtext" [0;97m>>$file: [0;97mappend [0;97mcontent [0;97mto [0;97mfile
+    
+    [0m
+
+## List of command commands I will use frequently (hack #2 on the list)
+1. **ls**:
+   - Command: `ls`
+   - Purpose: Lists files and directories in the current directory.
+   - Notes: Commonly used options include `-l` for a long listing format, `-a` to show hidden files, and `-h` for human-readable file sizes.
+
+2. **cd**:
+   - Command: `cd [directory]`
+   - Purpose: Changes the current working directory.
+   - Notes: Use `cd ..` to move to the parent directory and `cd ~` to move to the home directory.
+
+3. **pwd**:
+   - Command: `pwd`
+   - Purpose: Prints the current working directory.
+   - Notes: Useful for finding out where you are in the directory structure.
+
+4. **mkdir**:
+   - Command: `mkdir [directory_name]`
+   - Purpose: Creates a new directory.
+   - Notes: Use the `-p` option to create parent directories if they don't exist.
+
+5. **rm**:
+   - Command: `rm [file(s)]`
+   - Purpose: Removes (deletes) files or directories.
+   - Notes: Be cautious when using this command, as deleted files cannot be easily recovered.
+
+6. **cp**:
+   - Command: `cp [source] [destination]`
+   - Purpose: Copies files or directories from a source location to a destination.
+   - Notes: Use the `-r` option to copy directories recursively.
+
+7. **mv**:
+   - Command: `mv [source] [destination]`
+   - Purpose: Moves files or directories from a source location to a destination.
+   - Notes: Can also be used to rename files and directories.
+
+8. **touch**:
+   - Command: `touch [file(s)]`
+   - Purpose: Creates empty files or updates the access and modification times of existing files.
+   - Notes: Useful for quickly creating new files.
+
+9. **cat**:
+   - Command: `cat [file(s)]`
+   - Purpose: Displays the content of one or more files.
+   - Notes: Can also be used to concatenate and display multiple files.
+
+10. **grep**:
+    - Command: `grep [pattern] [file(s)]`
+    - Purpose: Searches for a specific pattern in one or more files.
+    - Notes: Use the `-i` option for case-insensitive search and `-r` for recursive search in directories.
+
+11. **chmod**:
+    - Command: `chmod [permissions] [file(s)]`
+    - Purpose: Changes the permissions (read, write, execute) of files or directories.
+    - Notes: Permissions can be specified using numerical values or symbolic notation.
+
+12. **chown**:
+    - Command: `chown [user]:[group] [file(s)]`
+    - Purpose: Changes the ownership of files or directories to a specific user and group.
+    - Notes: Useful for managing file ownership and permissions.
+
+13. **sudo**:
+    - Command: `sudo [command]`
+    - Purpose: Executes a command with superuser (administrator) privileges.
+    - Notes: Be cautious when using `sudo` as it grants significant system access.
 
 
-    -bash: line 30: mdless: command not found
+
+```python
+%%script bash
+# Show the active Ruby version, MacOS is 3.1.4
+ruby -v
+
+# Show active Python version, it needs to be 3.9 or better
+python --version
+
+# Setup Python libraries for Notebook conversion
+pip install nbconvert  # library for notebook conversion
+pip install nbformat  # notebook file utility
+pip install pyyaml  # notebook frontmatter
+
+# Show Jupyter packages, nbconvert needs to be in the list
+jupyter --version
+# Show Kernels, python3 needs to be in list
+#jupyter kernelspec list # does not work on Cloud Ubuntu so I will not be showing it
+
+```
+
+    ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x86_64-linux-gnu]
+    Python 3.10.12
+    Defaulting to user installation because normal site-packages is not writeable
+    Requirement already satisfied: nbconvert in /usr/lib/python3/dist-packages (6.4.0)
+    Defaulting to user installation because normal site-packages is not writeable
+    Requirement already satisfied: nbformat in /usr/lib/python3/dist-packages (5.1.3)
+    Defaulting to user installation because normal site-packages is not writeable
+    Requirement already satisfied: pyyaml in /usr/lib/python3/dist-packages (5.4.1)
+    Selected Jupyter core packages...
+    IPython          : 7.31.1
+    ipykernel        : 6.7.0
+    ipywidgets       : 6.0.0
+    jupyter_client   : 7.1.2
+    jupyter_core     : 4.9.1
+    jupyter_server   : not installed
+    jupyterlab       : not installed
+    nbclient         : 0.5.6
+    nbconvert        : 6.4.0
+    nbformat         : 5.1.3
+    notebook         : 6.4.8
+    qtconsole        : not installed
+    traitlets        : 5.1.1
+
+
+
+```python
+import os
+import subprocess
+
+def check_anaconda_installed():
+    return "anaconda" in os.environ.get("PATH", "").lower()
+
+def check_wsl_installed():
+    try:
+        subprocess.run(["wsl", "--list"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, check=True)
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
+anaconda_installed = check_anaconda_installed()
+wsl_installed = check_wsl_installed()
+
+print("Anaconda Installed:", anaconda_installed)
+print("WSL Installed:", wsl_installed)
+
+```
+
+    Anaconda Installed: False
+    WSL Installed: True
+
+
+
+```bash
+%%bash
+
+# Import variables for vscode project to utilize
+source /tmp/variables.sh
+
+# Change directory to the correct student repo
+cd "$project"
+
+# Configure git
+git config --global user.email "will-w-cheng@gmail.com"
+git config --global user.name "will-w-cheng"
+
+# Add, commit, and push changes
+git add .
+git commit -m "New changes added!!!!!!, change this message!"
+git push # will lag out the jupyter notebook kernel but yeah
+
+echo "Git commands completed."
+
+```
+
+    On branch main
+    Your branch is up to date with 'origin/main'.
+    
+    nothing to commit, working tree clean
 
 
 ## Hack Preparation.
 > Review Tool Setup Procedures and think about some thing you could verify through a Shell notebook.
-- Come up with your own student view of this procedure to show your tools are installed.  It is best that you keep the few things you understand, add things later as you start to understand them.
-- Name and create blog notes on some Linux commands you will use frequently.
-- Is there anything we use to verify tools we installed? Review versions?
-- How would you update a repository?  Use the git command line? 
+- Come up with your own student view of this procedure to show your tools are installed.
+- Name and create notes on some Linux commands you will use frequently.
+- Is there anything we use to verify tools we install? Review versions checks.
+- Is there anything we could verify with Anaconda?  or WSL?  
+- How would you update a repository?  Could you do that in script above?
 

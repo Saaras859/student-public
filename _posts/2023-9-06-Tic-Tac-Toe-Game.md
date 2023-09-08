@@ -1,10 +1,10 @@
 ---
-title: Tic Tac Toe
+comments: True
+layout: post
+title: Tic Tac Toe Game
+description: creation of a tic tac toe game
 type: hacks
-description: A pretty advanced use of JavaScript building a classic Tic Tac Toe game using menu controls, key events, and game logic.
-categories: [C4.9]
-courses: {csp: {week: 2}}
-tags: [javascript]
+courses: {'csp': {'week': 3}}
 ---
 
 <style>

@@ -24,9 +24,9 @@ type: hacks
 # Dependency Variables, set to match your project directories
 
 cat <<EOF > /tmp/variables.sh
-export project_dir=$HOME/Docuemnts/vscode  # change vscode to different name to test git clone
+export project_dir=$HOME  # change vscode to different name to test git clone
 export project=\$project_dir/student  # change teacher to name of project from git clone
-export project_repo="https://github.com/will-w-cheng/student.git"  # change to project of choice
+export project_repo="https://github.com/Saaras859/student.git"  # change to project of choice
 EOF
 ```
 
@@ -43,9 +43,9 @@ echo "Project: $project"
 echo "Repo: $project_repo"
 ```
 
-    Project dir: /home/will/Docuemnts/vscode
-    Project: /home/will/Docuemnts/vscode/student
-    Repo: https://github.com/will-w-cheng/student.git
+    Project dir: /home/saaras
+    Project: /home/saaras/student
+    Repo: https://github.com/Saaras859/student.git
 
 
 ## Setup Project
@@ -82,15 +82,14 @@ echo "Directory $project exists."
 ```
 
     Using conditional statement to create a project directory and project
-    Directory /home/will/Docuemnts/vscode does not exists... makinng directory /home/will/Docuemnts/vscode
-    Directory /home/will/Docuemnts/vscode exists.
-    Directory /home/will/Docuemnts/vscode/student does not exists... cloning https://github.com/will-w-cheng/student.git
+    Directory /home/saaras exists.
+    Directory /home/saaras/student does not exists... cloning https://github.com/Saaras859/student.git
 
 
     Cloning into 'student'...
 
 
-    Directory /home/will/Docuemnts/vscode/student exists.
+    Directory /home/saaras/student exists.
 
 
 ### Look at files Github project
@@ -119,9 +118,10 @@ ls
 ```
 
     Navigate to project, then navigate to area wwhere files were cloned
-    /home/will/Docuemnts/vscode/student
+    /home/saaras/student
     
     list top level or root of files with project pulled from github
+    2023-08-16-linux_shell.ipynb
     Gemfile
     LICENSE
     Makefile

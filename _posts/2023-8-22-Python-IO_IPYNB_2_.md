@@ -5,7 +5,7 @@ description: A cool introduction to python inputs/outputs
 toc: True
 comments: True
 categories: ['5.A', 'C4.1']
-courses: {'csp': {'week': 2}}
+courses: {'csse': {'week': 0}, 'csp': {'week': 1, 'categories': ['6.B']}, 'csa': {'week': 0}}
 type: devops
 ---
 
@@ -29,9 +29,9 @@ def ask_question(question, correct_answer):
 
 def main():
     questions = [
-        ("What command is used to include other functions that were previously developed?", "import"),
-        ("What command is used to evaluate correct or incorrect response in this example?", "if"),
-        ("Each 'if' command contains an '_________' to determine a true or false condition?", "expression")
+        ("What is Python primarily used for?", "Python is primarily used for web development, data analysis, artificial intelligence, and automation."),
+        ("How do you print 'Hello, World!' in Python?", "You can print 'Hello, World!' using the 'print()' function like this: 'print('Hello, World!')'."),
+        ("What is a variable in Python?", "A variable is a name used to store data in Python. It can hold different types of data, such as numbers, text, or lists."),
     ]
 
     print(f"Hello, {getpass.getuser()} running {sys.executable}")
@@ -39,14 +39,13 @@ def main():
 
     input("Press Enter to start the test...")
 
-
-
     correct_count = sum(ask_question(q, a) for q, a in questions)
 
     print(f"{getpass.getuser()}, you scored {correct_count}/{len(questions)}.")
 
 if __name__ == "__main__":
     main()
+
 ```
 
     Hello, kodal running C:\Users\kodal\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe

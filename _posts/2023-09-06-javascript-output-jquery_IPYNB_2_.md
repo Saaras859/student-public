@@ -1,10 +1,10 @@
 ---
-title: javascript Output Jquery
-type: hacks
-description: Use of JS to make a table, that allows for analyzing data of WW2
-categories: ['C4.9']
+title: JS Output w/ jquery
+toc: True
+description: A Tech Talk on outputs using HTML and Javascript. This uses jquery for easy onscreen interaction and filtering.
 courses: {'csp': {'week': 2}}
-tags: ['javascript']
+categories: ['C3.0', 'C3.1', 'C4.1']
+type: hacks
 ---
 
 ```python

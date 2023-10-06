@@ -215,6 +215,10 @@ console.log("set decimals to 2 places (num1 / num2)")
 console.log((num1 / num2).toFixed(2))
 ```
 
+
+    <IPython.core.display.Javascript object>
+
+
 # Array datatype
 - an array is just a list of other datatypes
 - put all the items in square brackets

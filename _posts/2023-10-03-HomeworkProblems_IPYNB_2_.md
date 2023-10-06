@@ -1,10 +1,10 @@
 ---
-toc: True
-comments: False
-layout: post
-title: Homework problems Data Abstractions
+title: HW
 type: hacks
-courses: {'csp': {'week': 4}}
+description: BAsic datatypes being utilized
+categories: ['C4.9']
+courses: {'csp': {'week': 7}}
+tags: ['javascript', 'python']
 ---
 
 ### Problem 1
@@ -263,11 +263,11 @@ def simulate_data_structure(data):
 
 # Example data
 data = [
-    {"name": "Alice", "age": 25, "city": "New York"},
-    {"name": "Bob", "age": 30, "city": "Los Angeles"},
-    {"name": "Charlie", "age": 22, "city": "New York"},
-    {"name": "David", "age": 35, "city": "Los Angeles"},
-    {"name": "Eve", "age": 28, "city": "Chicago"},
+    {"name": "Saaras", "age": 15, "city": "New York"},
+    {"name": "William CHeng", "age": 20, "city": "LA"},
+    {"name": "Eve", "age": 22, "city": "New York"},
+    {"name": "David", "age": 35, "city": "LA"},
+    {"name": "Charles", "age": 28, "city": "Chicago"},
 ]
 
 result = simulate_data_structure(data)
@@ -275,7 +275,7 @@ print(result)
 
 ```
 
-    {'New York': {'names': ['Alice', 'Charlie'], 'total_age': 47, 'total_people': 2, 'average_age': 23.5}, 'Los Angeles': {'names': ['Bob', 'David'], 'total_age': 65, 'total_people': 2, 'average_age': 32.5}, 'Chicago': {'names': ['Eve'], 'total_age': 28, 'total_people': 1, 'average_age': 28.0}, 'Statistics': [{'city': 'New York', 'total_people': 2, 'average_age': 23.5}, {'city': 'Los Angeles', 'total_people': 2, 'average_age': 32.5}, {'city': 'Chicago', 'total_people': 1, 'average_age': 28.0}]}
+    {'New York': {'names': ['Saaras', 'Eve'], 'total_age': 37, 'total_people': 2, 'average_age': 18.5}, 'LA': {'names': ['William CHeng', 'David'], 'total_age': 55, 'total_people': 2, 'average_age': 27.5}, 'Chicago': {'names': ['Charles'], 'total_age': 28, 'total_people': 1, 'average_age': 28.0}, 'Statistics': [{'city': 'New York', 'total_people': 2, 'average_age': 18.5}, {'city': 'LA', 'total_people': 2, 'average_age': 27.5}, {'city': 'Chicago', 'total_people': 1, 'average_age': 28.0}]}
 
 
 

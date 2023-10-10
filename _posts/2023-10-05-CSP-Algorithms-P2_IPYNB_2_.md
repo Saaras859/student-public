@@ -1,12 +1,10 @@
 ---
-toc: False
-comments: True
-layout: post
-title: P2 Algorithms
-description: Team SRSC
-type: collab
-courses: {'csp': {'week': 7}}
-author: cayden, saathvik, sri, ryan
+title: HW
+type: hacks
+description: BAsic datatypes being utilized
+categories: ['C4.9']
+courses: {'csp': {'week': 8}}
+tags: ['javascript', 'python']
 ---
 
 # ALGORITHMS 
@@ -83,11 +81,7 @@ for fruit in fruits:
 2. For each fruit in the list, print the fruit
 
 
-# ACTIVITY 1: Robot Pseudocode 
 
-[Link to Robot Question 2](https://assets.learnosity.com/organisations/537/VR165972.g03.png)
-
-Write the pseudocode to move the robot onto the gray square. 
 
 Available Code: <br>
 Move forward <br>

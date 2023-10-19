@@ -164,12 +164,6 @@ if x<=x1:
 
 
 ```python
-#HOMEWORK
-
-
-# The quiz contains questions related to Boolean values, Boolean expressions,
-# conditional statements, relational operators, and logical operators.
-
 # Import necessary modules
 import getpass  # Module to get the user's name
 import sys  # Module to access system-related information
@@ -183,10 +177,11 @@ def question_with_response(prompt):
     return msg
 
 # Define the number of questions and initialize the correct answers counter
-questions = 5
+questions = 15
 correct = 0
-user_name=input()
-# Question 1: Boolean Basics 
+user_name = input("Enter your name: ")
+
+# Question 1: Boolean Basics
 response = question_with_response("What are the possible values of a Boolean variable?")
 if response.lower() == "true or false":
     print("Correct!")
@@ -226,6 +221,86 @@ if response.lower() == "and" or response.lower() == "or" or response.lower() == 
 else:
     print("Incorrect.")
 
+# Question 6: Boolean Values
+response = question_with_response("What is the result of the following Boolean expression: `(True and False) or (True or False)`?")
+if response.lower() == "true":
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 7: Boolean Expressions
+response = question_with_response("Explain the difference between the `and` and `or` logical operators in Python with examples.")
+if "and operator" in response.lower() and "combines two conditions" in response.lower() and "both conditions true" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 8: Conditional Statements
+response = question_with_response("In Python, what is the difference between the `if`, `elif`, and `else` statements? Provide an example of how they are used together.")
+if "if statement" in response.lower() and "checks a condition" in response.lower() and "elif statement" in response.lower() and "multiple conditions" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 9: Relational Operators
+response = question_with_response("Write a Python expression using a relational operator to check if a variable `x` is greater than or equal to 10.")
+if response.lower() == "x >= 10":
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 10: Logical Operators
+response = question_with_response("Explain the purpose of the `not` operator in Boolean logic. Provide an example to illustrate its usage.")
+if "negates a condition" in response.lower() and "turns true into false and vice versa" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 11: Boolean Logic
+response = question_with_response("Simplify the following Boolean expression: `(True and False) or (not True)`")
+if response.lower() == "False":
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 12: Conditional Statements
+response = question_with_response("What is the difference between `=` and `==` in Python? Explain with examples.")
+if "= is assignment operator" in response.lower() and "== is equality operator" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 13: Logical Operators
+response = question_with_response("Write a Python expression using the `or` operator to check if a number is either less than 0 or greater than 100.")
+if response.lower() == "num < 0 or num > 100":
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 14: Boolean Expressions
+response = question_with_response("How can parentheses be used to change the order of operations in a Boolean expression? Provide an example.")
+if "change the evaluation order" in response.lower() and "control how expressions are evaluated" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
+# Question 15: Conditional Statements
+response = question_with_response("Explain the concept of nested conditional statements with an example in Python.")
+if "if statements inside other if statements" in response.lower() and "allows multiple branching levels" in response.lower():
+    print("Correct!")
+    correct += 1
+else:
+    print("Incorrect.")
+
 # Display the final score
 percentage_correct = (correct / questions) * 100
 print(user_name + ", you scored " + str(correct) + "/" + str(questions) + " which is " + str(percentage_correct) + "%.")
@@ -233,4 +308,34 @@ print(user_name + ", you scored " + str(correct) + "/" + str(questions) + " whic
 ```
 
     Question: What are the possible values of a Boolean variable?
+    Incorrect.
+    Question: Why are Boolean expressions important in programming?
+    Incorrect.
+    Question: What is the purpose of conditional (if-else) statements in programming?
+    Incorrect.
+    Question: Give an example of a relational operator in programming.
+    Incorrect.
+    Question: Provide an example of a logical operator in programming.
+    Incorrect.
+    Question: What is the result of the following Boolean expression: `(True and False) or (True or False)`?
+    Incorrect.
+    Question: Explain the difference between the `and` and `or` logical operators in Python with examples.
+    Incorrect.
+    Question: In Python, what is the difference between the `if`, `elif`, and `else` statements? Provide an example of how they are used together.
+    Incorrect.
+    Question: Write a Python expression using a relational operator to check if a variable `x` is greater than or equal to 10.
+    Incorrect.
+    Question: Explain the purpose of the `not` operator in Boolean logic. Provide an example to illustrate its usage.
+    Incorrect.
+    Question: Simplify the following Boolean expression: `(True and False) or (not True)`
+    Incorrect.
+    Question: What is the difference between `=` and `==` in Python? Explain with examples.
+    Incorrect.
+    Question: Write a Python expression using the `or` operator to check if a number is either less than 0 or greater than 100.
+    Incorrect.
+    Question: How can parentheses be used to change the order of operations in a Boolean expression? Provide an example.
+    Incorrect.
+    Question: Explain the concept of nested conditional statements with an example in Python.
+    Incorrect.
+    Saaras, you scored 0/15 which is 0.0%.
 

@@ -4,7 +4,7 @@ comments: True
 layout: post
 title: Base64 blog
 type: hacks
-courses: {'csp': {'week': 10}}
+courses: {'csp': {'week': 9}}
 ---
 
 ```python

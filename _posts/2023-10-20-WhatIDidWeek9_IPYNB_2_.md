@@ -3,7 +3,7 @@ toc: True
 comments: True
 layout: post
 title: Base64 blog
-type: hacks
+type: tangibles
 courses: {'csp': {'week': 9}}
 ---
 

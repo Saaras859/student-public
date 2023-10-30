@@ -2,7 +2,7 @@
 toc: True
 comments: True
 layout: post
-title: My Practical Journey
+title: Base64 blog
 type: hacks
 courses: {'csp': {'week': 10}}
 ---

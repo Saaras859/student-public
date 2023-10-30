@@ -29,10 +29,14 @@ Implementing the scaling factor was the turning point in my struggle. When I ran
 
 In conclusion, this experience taught me the importance of understanding the intricacies of the coordinate system and the impact of scaling on graphical projects. Through perseverance, research, and code adjustments, I was able to overcome the challenges and achieve the desired outcome. This journey not only enhanced my coding skills but also deepened my understanding of graphical concepts—a valuable lesson that will undoubtedly benefit me in future projects.
 
-## Issues 
-https://github.com/will-w-cheng/team-influencer-innovator-backend/issues/1
-https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/babf0bbba02cbc02967ed0caeeba0e4fd8b5a533
-Where I started all of this
-https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/bc8e899d55c9c6aca4f8cd313add2ce64cea5bc0
+## Issues
+
+- [Issue #1](https://github.com/will-w-cheng/team-influencer-innovator-backend/issues/1)
+
+## Commits
+
+- [Commit where you started](https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/bc8e899d55c9c6aca4f8cd313add2ce64cea5bc0)
+- [Recent Commit](https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/babf0bbba02cbc02967ed0caeeba0e4fd8b5a533)
+
 
 

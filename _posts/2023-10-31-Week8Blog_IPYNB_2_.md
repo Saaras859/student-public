@@ -58,5 +58,6 @@ By following this structured approach and deepening my understanding of image re
 - [Commit 1](https://github.com/will-w-cheng/Frontend-influencer-innovator/commit/85a3429c5d264813555b3d25ebd7b24f0b97e5b2)
 - [Commit 2](https://github.com/Saaras859/Team-Influencer-Innovators/commit/78986eaeb063379a19f9c6d10011cdd87a1f62f7)
 - [Commit 3](https://github.com/Saaras859/Team-Influencer-Innovators/commit/5ebfcef15439ef72d2bbcad65041a7634011ff7b)
+- [Issue 4](https://github.com/Saaras859/Team-Influencer-Innovators/issues/4)
 
 

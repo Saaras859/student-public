@@ -2,7 +2,7 @@
 toc: True
 comments: True
 layout: post
-title: What I learned this Tri and REflection
+title: What I learned this Tri and Reflection
 type: plans
 courses: {'csp': {'week': 11}}
 ---

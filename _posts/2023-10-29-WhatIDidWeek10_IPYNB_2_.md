@@ -50,3 +50,12 @@ Amidst the challenges, I discovered an elegant solution through Python. As menti
 
 We had an issue where all my files were becoming corrupted the second I put them into vscode so then we converted them from JPEG to JPG which was able to fix it because apparently vscode has issues.
 
+### **5. Links to my code**
+For just the code applied here
+https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/5b9a852d8bea952155e6da7489079d8fe12b1e35
+For full application heres the correct one
+https://github.com/will-w-cheng/team-influencer-innovator-backend/commit/bc8e899d55c9c6aca4f8cd313add2ce64cea5bc0
+Here is my issue on the code
+https://github.com/will-w-cheng/team-influencer-innovator-backend/issues/1
+
+

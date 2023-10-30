@@ -3,7 +3,7 @@ toc: True
 comments: True
 layout: post
 title: Images not rendering, How I fixed sqlite bug, Learning on Ports
-type: plans
+type: tangibles
 courses: {'csp': {'week': 8}}
 ---
 

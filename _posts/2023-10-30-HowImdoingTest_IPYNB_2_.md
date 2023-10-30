@@ -2,8 +2,8 @@
 toc: True
 comments: True
 layout: post
-title: My struggle with coordinates and how I got it to work
-type: hacks
+title: How Im going to be prepping for the Test
+type: plans
 courses: {'csp': {'week': 10}}
 ---
 

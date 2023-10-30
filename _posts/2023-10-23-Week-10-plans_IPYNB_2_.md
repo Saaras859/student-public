@@ -2,7 +2,7 @@
 toc: True
 comments: True
 layout: post
-title: Week 9
+title: Week 10
 description: Plans
 courses: {'csp': {'week': 10}}
 type: plans

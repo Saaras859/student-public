@@ -30,3 +30,7 @@ The reason why I gott this question wrong is because I misread the question and 
 ![Solution Image](https://cdn.discordapp.com/attachments/1028150319961620510/1170860321196478494/image.png?ex=655a93a6&is=65481ea6&hm=f1f7a8ef7ce1964e53e9fd50d610d37fa33deeec9d69a1d7958bbb181580e3f7&)
 
 What went wrong here is I didnt understand the questione because I forgot what abstraction was and I didnt read the complexity aspect of the question as I was rushing through. So, the reasont that the answers are right here is because the instances getting replaced with a call to a procedure makes the code a lot smaller and less cluttered making it easier to read by adding functions elsewhere perhaps together to reduce clutter in the main area of the code. And, making documentation shorter and in pieces allows for more detailed understanding of each piece of code. To solve this next time I learned about abstraction.
+
+![Solution Image](https://cdn.discordapp.com/attachments/1028150319961620510/1170873494158983248/image.png?ex=655a9fea&is=65482aea&hm=217d4dd3c1e7ecd9a92dde59e35ffb8b72ba24828b93e4f692ca617374a84c32&)
+
+Here I learned further about pseudocode by referring back to the lesson, because I was mixed up between B and D and now I learned that I basically direct the arrow into the value that I want to change so hear because I want second to become temp I change the arrow to be in second's direction. Because what this code wants me to do is make second temp, and second before this operation has a different value then temp.

@@ -1,11 +1,10 @@
 ---
-layout: post
-title: 1.4 Correcting errors
-description: Practice with identifying and correcting code blocks
-type: ccc
-author: Safin Singh and Rohan Juneja
-permalink: /basics/js-debug
-hide: True
+title: Javascript errors
+type: hacks
+description: BAsic datatypes being utilized
+categories: ['C4.9']
+courses: {'csp': {'week': 7}}
+tags: ['javascript', 'python']
 ---
 
 {% include nav_basics.html %}

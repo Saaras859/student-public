@@ -37,10 +37,12 @@ During this process, I explored multiple methods for Base64 encoding, each with 
 ### **1. Online Generator through Cloud:**
 
 One approach was using online tools and cloud services. These platforms offer user-friendly interfaces where you can upload an image, and they generate the Base64 encoded string for you. While convenient, this method might not be suitable for all situations, especially when dealing with sensitive data or when automation is required.
+[Base64 Image Encoder](https://base64.guru/converter/encode/image)
 
 ### **2. Manual Encoding via Command Prompt:**
 
 For a more hands-on approach, I experimented with manual encoding using the command prompt or terminal. This method involved using built-in commands to read the binary data of an image file and then encode it into Base64. While providing more control, it proved to be cumbersome and time-consuming, especially for larger projects or multiple images.
+[Base64 Encode or Decode on the Command Line without Installing Extra Tools on Linux, Windows, or macOS](https://www.igorkromin.net/index.php/2017/04/26/base64-encode-or-decode-on-the-command-line-without-installing-extra-tools-on-linux-windows-or-macos/)
 
 ### **3. Python Library: The Elegant Solution**
 

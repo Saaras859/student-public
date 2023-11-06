@@ -34,3 +34,5 @@ What went wrong here is I didnt understand the questione because I forgot what a
 ![Solution Image](https://cdn.discordapp.com/attachments/1028150319961620510/1170873494158983248/image.png?ex=655a9fea&is=65482aea&hm=217d4dd3c1e7ecd9a92dde59e35ffb8b72ba24828b93e4f692ca617374a84c32&)
 
 Here I learned further about pseudocode by referring back to the lesson, because I was mixed up between B and D and now I learned that I basically direct the arrow into the value that I want to change so hear because I want second to become temp I change the arrow to be in second's direction. Because what this code wants me to do is make second temp, and second before this operation has a different value then temp.
+
+To conclude to study I need to better read the questions and understand how they work. I think I can achieve this by spending more time with each questiona and better looking at the question's I also need to remember my pseudo code syntax so I dont need to potentially have to google the format before the test.

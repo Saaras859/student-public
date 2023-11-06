@@ -191,21 +191,21 @@ Create your own robot problem! Include a picture with a square grid to represent
 Add your image here by adding the link between the "" and removing the comment formatting:
 <!-- <img src=""> -->
 
-ATTENTION: My image didnt work me and matthew couldnt debug so he told me to send it to arthur liu
-PROCEDURE MoveToFindGraySquare(position) 
-{
-    position --> MOVE_FORWARD()  // Move to the right (initial position)
-    position --> MOVE_FORWARD()  // Move to the right
-    position --> ROTATE_RIGHT()  // Turn to face down
-    position --> MOVE_FORWARD()  // Move down
-    position --> MOVE_FORWARD()  // Move down
-    position --> ROTATE_RIGHT()  // Turn to face left
-    position --> MOVE_FORWARD()  // Move left
-    position --> ROTATE_LEFT()   // Turn to face up
-    position --> MOVE_FORWARD()  // Move up
-    position --> MOVE_FORWARD()  // Move up
-    position --> ROTATE_RIGHT()  // Turn to face right
-    position --> MOVE_FORWARD()  // Move to the right
+![Solution Image](https://cdn.discordapp.com/attachments/1028150319961620510/1170884960031350824/image.png?ex=655aaa98&is=65483598&hm=2759cd25f4dae8e3f969a71948469d75d42970683ee369e760919c8dd9a4c510&)
+
+PROCEDURE MoveToFindGraySquare(position){
+    position --> MOVE_FORWARD()  // Move to the right (initial position)    
+    position --> MOVE_FORWARD()  // Move to the right  
+    position --> ROTATE_RIGHT()  // Turn to face down  
+    position --> MOVE_FORWARD()  // Move down  
+    position --> MOVE_FORWARD()  // Move down  
+    position --> ROTATE_RIGHT()  // Turn to face left  
+    position --> MOVE_FORWARD()  // Move left  
+    position --> ROTATE_LEFT()   // Turn to face up  
+    position --> MOVE_FORWARD()  // Move up  
+    position --> MOVE_FORWARD()  // Move up  
+    position --> ROTATE_RIGHT()  // Turn to face right  
+    position --> MOVE_FORWARD()  // Move to the right  
 }
 
 

@@ -7,7 +7,7 @@ type: plans
 courses: {'csp': {'week': 2}}
 ---
 
-# Plans for week 2!!
+# Plans for week 2!
 
 ### Me and my partner William Cheng will perform hacks and finish these things:
 

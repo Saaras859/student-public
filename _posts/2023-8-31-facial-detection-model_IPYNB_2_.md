@@ -3,7 +3,7 @@ comments: True
 layout: post
 title: Python AI model with mediapipe and opencv
 description: Using your default camera and mediapipe. The code is able to access your camera and spatially analyze your face so that, we can see how you look before you take the photo and if your face is perfectly facing the camera or not
-type: tangibles
+type: hacks
 courses: {'csp': {'week': 2}}
 ---
 

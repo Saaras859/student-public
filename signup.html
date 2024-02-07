@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girly Anime Signup Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6f2; /* Light pink background color */
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #ffccff; /* Lighter pink background color */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ff66b3; /* Pink text color */
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      background-color: #fff; /* White input background color */
+      color: #ff66b3; /* Pink text color */
+      border: 1px solid #ff99cc; /* Light pink border color */
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #ff66b3; /* Pink button background color */
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #ff33cc; /* Darker pink hover color */
+    }
+  </style>
+</head>
+
+<body>
+  <form id="signup-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="uid">User ID:</label>
+    <input type="text" id="uid" name="uid" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Sign Up</button>
+    <br>
+    <button class="back-button" onclick="window.location.href='./'" style="background-color: #ff66b3; margin-top: 10px;">Back to Login Page</button>
+  </form>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      fetch('http://127.0.0.1:8086/api/users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            uid: document.getElementById('uid').value,
+            password: document.getElementById('password').value,
+            name: document.getElementById('name').value,
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.location.href = "./";
+          window.location.replace("./");
+        })
+        .catch(error => {
+          // Handle any errors that occurred during the fetch
+          console.error('Error:', error);
+        });
+    });
+  </script>
+</body>
+
+</html>
